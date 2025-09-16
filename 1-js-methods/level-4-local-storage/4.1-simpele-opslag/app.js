@@ -1,48 +1,47 @@
-// Opdracht 4.1: Simpele Opslag
 console.log('🚀 Opdracht 4.1: Simpele Opslag');
 
 function slaOpNaam() {
     console.log('slaOpNaam() aangeroepen');
     
-    // TODO: Haal naam uit input veld
-    const naam = /* jouw code hier */
+    // 1. Haal naam uit input veld
+    const naam = document.getElementById('naam-input').value;
     
-    // TODO: Check of naam niet leeg is
-    if (/* jouw code hier */) {
+    // 2. Check of naam niet leeg is
+    if (naam.trim() === '') {
         alert('Voer eerst een naam in!');
         return;
     }
     
-    // TODO: Sla naam op in localStorage
-    /* jouw code hier */;
+    // 3. Sla naam op in localStorage
+    localStorage.setItem('gebruikersnaam', naam);
     
-    // TODO: Toon welkomstbericht
+    // 4. Toon welkomstbericht
     toonWelkom();
     
-    // Maak input leeg
+    // 5. Maak input leeg
     document.getElementById('naam-input').value = '';
 }
 
 function toonWelkom() {
-    // TODO: Haal naam op uit localStorage
-    const opgeslagenNaam = /* jouw code hier */
+    // 1. Haal naam op uit localStorage
+    const opgeslagenNaam = localStorage.getItem('gebruikersnaam');
     
     const welkomElement = document.getElementById('welkom-bericht');
     
-    // TODO: Toon juiste bericht
-    if (/* jouw code hier */) {
-        welkomElement.textContent = /* jouw code hier */
+    // 2. Toon juiste bericht
+    if (opgeslagenNaam && opgeslagenNaam.trim() !== '') {
+        welkomElement.textContent = `Welkom ${opgeslagenNaam}!`;
     } else {
         welkomElement.textContent = 'Geen naam opgeslagen.';
     }
 }
 
 function wisNaam() {
-    // TODO: Verwijder naam uit localStorage
-    /* jouw code hier */;
+    // Verwijder naam uit localStorage
+    localStorage.removeItem('gebruikersnaam');
     
     toonWelkom();
 }
 
-// TODO: Roep toonWelkom() aan bij pagina laden
-/* jouw code hier */;
+// Roep toonWelkom() aan bij pagina laden
+document.addEventListener('DOMContentLoaded', toonWelkom);
