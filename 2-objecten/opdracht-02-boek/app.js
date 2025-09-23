@@ -14,3 +14,11 @@
 // In de theorie staat uitgelegd hoe je dit moet doen.
 
 // Let op: in de code conventions staat dat je de code in het Engels moet schrijven!
+
+const book = {
+    title: "The Great Gatsby",   
+    Author: "F.scot Fitzgerald", 
+    publisher:   "Charles Scribner's Sons"      
+    year: "1925" 
+    sold:""
+}
