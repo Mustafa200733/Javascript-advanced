@@ -23,3 +23,24 @@
 // Toon de wijzigingen op het scherm.
 
 // Gebruik geen arrow function in een object!
+
+const person = {
+name:  "Mustafa",
+age:  "30",
+birthdate:"10-03-2008",
+gender: "male",
+alive: "Yes",
+hobbies:  ["voetbal", "gamen","basketbal" , "series kijken"],
+
+}
+
+const output = document.querySelector(".output");
+
+// Vul de output-div met de gegevens
+output.innerHTML = `
+  <p>name: ${person.name}</p>
+  <p>age: ${person.age}</p>
+  <p>birthdate: ${person.birthdate}</p>
+  <p>gender: ${person.gender}</p>
+  <p>alive: ${person.alive}</p>
+  <p>hobbies: ${person.hobbies}</p>`

@@ -15,10 +15,27 @@
 
 // Let op: in de code conventions staat dat je de code in het Engels moet schrijven!
 
+
+
+// Boek-object
 const book = {
-    title: "The Great Gatsby",   
-    Author: "F.scot Fitzgerald", 
-    publisher:   "Charles Scribner's Sons"      
-    year: "1925" 
-    sold:""
-}
+  title: "The Great Gatsby",
+  author: "F. Scott Fitzgerald",
+  publisher: "Charles Scribner's Sons",
+  year: 1925,
+  sold: 25000000,
+  price: "$10.99"
+};
+
+// Selecteer de output-div
+const output = document.querySelector(".output");
+
+// Vul de output-div met de gegevens
+output.innerHTML = `
+  <p>Title: ${book.title}</p>
+  <p>Author: ${book.author}</p>
+  <p>Publisher: ${book.publisher}</p>
+  <p>Year: ${book.year}</p>
+  <p>Sold: ${book.sold}</p>
+  <p>Price: ${book.price}</p>
+`
