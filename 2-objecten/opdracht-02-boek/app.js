@@ -11,9 +11,9 @@
 
 // Toon elke property op het scherm door het in een p-tag te plaatsen. Hiervoor maak je in je HTML een div-tag aan met de class 'output'.
 
-// In de theorie staat uitgelegd hoe je dit moet doen.
+// In de theorie staat uitgelegd hoe je dit mopoet doen.
 
-// Let op: in de code conventions staat dat je de code in het Engels moet schrijven!
+// Let : in de code conventions staat dat je de code in het Engels moet schrijven!
 
 
 

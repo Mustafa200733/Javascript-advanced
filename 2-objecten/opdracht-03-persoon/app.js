@@ -25,7 +25,7 @@
 // Gebruik geen arrow function in een object!
 
 const person = {
-name:  "Mustafa",
+name:  "Hasan",
 age:  "30",
 birthdate:"10-03-2008",
 gender: "male",
