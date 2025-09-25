@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Hans",
+        "age": 63,
+        "picture": "hans.jpg"
+    },
+    {
+        "name": "Klaas",
+        "age": 29,
+        "picture": "klaas.jpg"
+    },
+    {
+        "name": "Jan",
+        "age": 23,
+        "picture": "jan.jpg"
+    },
+    {
+        "name": "James",
+        "age": 22,
+        "picture": "rs-17720-benson-624-1371234534.webp"
+    },
+    {
+        "name": "John",
+        "age": 28,
+        "picture": "john.jpg"
+    },
+    {
+        "name": "Jill",
+        "age": 46,
+        "picture": "Mick.jpg"
+    }
+]
