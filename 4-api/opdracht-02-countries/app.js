@@ -11,9 +11,9 @@ fetch('https://restcountries.com/v3.1/all?fields=name,flags')
           <h2>${country.name.common}</h2>
         `;
                 grid.appendChild(card);
-            }
+            
         });
     })
     .catch(error => {
-        console.error('Fout bij het laden van landen:', error);
+        console.err('Fout bij het laden van landen:', error);
     });
