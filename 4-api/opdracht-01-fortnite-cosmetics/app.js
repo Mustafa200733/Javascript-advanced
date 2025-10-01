@@ -1,68 +1,40 @@
-console.log('App.js is loaded');
-let output = document.querySelector('.cosmetics');
-let out = '';
-fetch('fortnite.json')
+fetch('https://fortnite-api.com/v2/cosmetics/new')
   .then(response => response.json())
   .then(data => {
-    const cosmeticsSection = document.querySelector('.cosmetics');
-    const title = document.getElementById('cosmetics-title');
-    title.textContent = `${data.length} Fortnite Cosmetics`;
+    const container = document.getElementById('cosmetics');
 
-    function renderCosmetics(list) {
-      cosmeticsSection.innerHTML = '';
-      list.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'cosmetic';
-        div.innerHTML = `
+    // Zet de container in flexbox
+    container.style.display = 'flex';
+    container.style.flexWrap = 'wrap';
+    container.style.gap = '20px';
 
-          <img src="${item.image}" alt="${item.name}">    
-          <div class="cosmetic-info">
-              
-            <div class="name">${item.name}</div>
-            <div class="type">Type
-            : ${item.type}</div>
-            <div class="rarity">Rarity: ${item.rarity}</div>
-            <div class="cost">Cost: ${item.cost} V-Bucks</div>
-          </div>
-        `;
-        cosmeticsSection.appendChild(div);
-      });
+    if (data.data && data.data.items && Array.isArray(data.data.items.br)) {
+      if (data.data.items.br.length === 0) {
+        container.innerHTML = "<p>Geen nieuwe cosmetics gevonden.</p>";
+      } else {
+        for (let cosmetic of data.data.items.br) {
+          const div = document.createElement('div');
+          div.style.border = '1px solid #ccc';
+          div.style.padding = '10px';
+          div.style.borderRadius = '8px';
+          div.style.width = '200px';
+          div.style.textAlign = 'center';
+          div.style.background = '#f9f9f9';
+
+          div.innerHTML = `
+            <h3>${cosmetic.name}</h3>
+            <p>Type: ${cosmetic.type.displayValue}</p>
+            <img src="${cosmetic.images.icon}" alt="${cosmetic.name}" width="100">
+          `;
+          container.appendChild(div);
+        }
+      }
+    } else {
+      container.innerHTML = "<p>Geen nieuwe cosmetics gevonden.</p>";
     }
-
-    renderCosmetics(data);
-    document.getElementById('clear-btn').addEventListener('click', () => {
-      cosmeticsSection.innerHTML = '';
-      title.textContent = '0 Fortnite Cosmetics';
-    });
-  })
-  .catch(error => console.log('error', error));
-
-fetch('j.json')
-  .then(response => response.json())
-  .then(data => {
-    // Haal alle BR items op
-    const items = data.data.items.br;
-    // Filter alleen items met een geldige naam en smallIcon
-    const filtered = items.filter(item =>
-      item.name && item.name !== "null" &&
-      item.images && item.images.smallIcon
-    );
-    // Selecteer de grid container
-    const grid = document.getElementById('cosmetics-grid');
-    // Voeg elke item toe aan het grid
-    filtered.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'cosmetic-card';
-      card.innerHTML = `
-        <img src="${item.images.smallIcon}" alt="${item.name}">
-        <h2>${item.name}</h2>
-      `;
-      grid.appendChild(card);
-    });
   })
   .catch(error => {
-    console.error('Fout bij het laden van de API:', error);
+    console.log('Fout:', error);
+    const container = document.getElementById('cosmetics');
+    container.innerHTML = '<p>Sorry, de cosmetics konden niet geladen worden.</p>';
   });
-
-
-
