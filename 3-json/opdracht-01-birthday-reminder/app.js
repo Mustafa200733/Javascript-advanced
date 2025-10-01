@@ -31,4 +31,4 @@ fetch('birthday.json')
             title.textContent = '0 Birthdays Today';
         });
     })
-    .catch(error => console.log('error', error));
+    .cartch(error => console.log('error', error));
