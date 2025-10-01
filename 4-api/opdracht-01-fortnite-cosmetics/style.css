@@ -1,3 +1,29 @@
-body{
-    background-color:blue;
+.cosmetics-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cosmetic-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  background: #f9f9f9;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cosmetic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cosmetic-card img {
+  max-width: 100px;
+  height: auto;
+  margin-top: 10px;
+}
+body {
+ background-color: blue;
 }
